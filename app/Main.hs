@@ -14,7 +14,7 @@ config =
       textOffsets = [0, 0, 0, -2],
       bgColor = "#222222",
       fgColor = "#bdbdbd",
-      position = BottomH 33,
+      position = BottomHM 33 0 132 0 0,
       border = NoBorder,
       borderColor = "#646464",
       -- layout
