@@ -1,0 +1,7 @@
+{
+  "haskell": {
+    "checkParents": "CheckOnSave",
+    "checkProject": true,
+    "formattingProvider": "fourmolu"
+  }
+}
