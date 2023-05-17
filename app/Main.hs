@@ -29,10 +29,8 @@ config =
       persistent = True,
       commands =
         [ Run alsa,
-          -- , Run volume
           Run spotify,
-          Run weather,
-          -- Run OpenWeatherMap
+          Run openweathermap,
           Run wifi,
           Run ram,
           Run time,
@@ -48,14 +46,12 @@ statusBar =
   "<hspace=3/>"
     ++ "%UnsafeXMonadLog%"
     ++ "}{ "
-    ++ ("%UGTB%" ++ lrsep)
-    -- ++ ("%openweathermap%" ++ lrsep)
+    ++ ("%openweathermap%" ++ lrsep)
     ++ ("%memory%" ++ lrsep)
     ++ ("%diskquote%" ++ lrsep)
     ++ ("%date%" ++ lsep)
     ++ ("%wi%" ++ rsep)
     ++ "%myalsa:default:Master%"
-    -- ++ "%volume%"
     ++ "%mpris2%"
     ++ (lrsep ++ "<action=`x layout extra` button=3><action=`x layout switch`>%kbd%</action></action>" ++ "  ")
     ++ "<fn=2>%battery-status%</fn>"
@@ -105,31 +101,6 @@ spotify =
     )
     3
 
-weather :: Monitors
-weather =
-  WeatherX
-    "UGTB"
-    [ ("clear", "☀ "),
-      ("sunny", "☀ "),
-      ("mostly clear", "🌤"),
-      ("mostly sunny", "🌤"),
-      ("partly sunny", "⛅"),
-      ("fair", "🌑"),
-      ("cloudy", "☁"),
-      ("overcast", "☁"),
-      ("partly cloudy", "⛅"),
-      ("mostly cloudy", "🌧"),
-      ("considerable cloudiness", "⛈")
-    ]
-    ( ["-t", "<fn=1><skyConditionS></fn> <tempC>°C"]
-        ++ ["-L", "5"]
-        ++ ["-H", "10"]
-        ++ ["--normal", "lightgray"]
-        ++ ["--high", "orange"]
-        ++ ["--low", "lightblue"]
-    )
-    9000
-
 wifi :: Monitors
 wifi =
   Wireless
@@ -171,6 +142,10 @@ disk = Com "/home/magnickolas/.xmobar/widgets/disk.sh" [] "diskquote" 300
 volume :: Command
 volume =
   Com "/home/magnickolas/.xmobar/widgets/volume.sh" [] "volume" 10
+
+openweathermap :: Command
+openweathermap =
+  Com "/home/magnickolas/.xmobar/widgets/openweathermap.sh" [] "openweathermap" 3000
 
 xmonadLog :: XMonadLog
 xmonadLog = UnsafeXMonadLog
