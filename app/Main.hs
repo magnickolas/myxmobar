@@ -83,8 +83,8 @@ alsa =
           ++ ("</action>" ++ "</action>" ++ "</action>"),
         "--"
       ]
-        ++ ["--volume-char-pattern", replicate 1 '\xfa7e' ++ replicate 1 '\xfa7f' ++ replicate 1 '\xfa7d']
-        ++ ["--offChar", "<fc=#606060>\xfa80</fc>"]
+        ++ ["--volume-char-pattern", replicate 1 '\xf057f' ++ replicate 1 '\xf0580' ++ replicate 1 '\xf057e']
+        ++ ["--offChar", "<fc=#606060>\xf0581</fc>"]
     )
 
 spotify :: Monitors
@@ -140,7 +140,7 @@ wifi =
 ram :: Monitors
 ram =
   Memory
-    ( ["-t", "<fn=2>\xf85a</fn><hspace=7/><usedratio>"]
+    ( ["-t", "<fn=2>\xf035b</fn><hspace=7/><usedratio>"]
         ++ ["--Low", "20"]
         ++ ["--High", "90"]
         ++ ["--low", "green"]
